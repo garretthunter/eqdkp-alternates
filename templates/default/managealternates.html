@@ -1,0 +1,119 @@
+<!-- INCLUDE page_header.html -->
+<script language="JavaScript" type="text/javascript">
+<!--
+function check_form()
+{
+    if (document.post.member_alias.value.length < 1)
+    {
+        alert('{MSG_ALIAS_EMPTY}');
+        return false;
+    }
+    return true;
+}               
+//-->
+</script>
+
+<form method="post" action="{F_UPDATE_MEMBER}" name="post" onsubmit="return check_form(this)">
+<input type="hidden" name="{URI_NAME}" value="{V_MEMBER_NAME}" />
+<input type="hidden" name="member_id" value="{MEMBER_ID}" />
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr>
+    <th align="center" colspan="4">{L_MANAGE_ALTERNATES_TITLE}</th>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" class="row2">&nbsp;</td>
+    <td nowrap="nowrap" class="row2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="50%" nowrap="nowrap" class="row2">
+      <div align="right"><span class="row1"><label for="member_alias">{L_ADD_ALIAS}:</label></span></div>
+    </td>
+    <td width="50%" nowrap="nowrap" class="row2">
+      <input type="text" name="member_alias" id="member_alias" size="20" maxlength="30" value="" class="input" />
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" nowrap="nowrap" class="row2">&nbsp;</td>
+    <td width="50%" nowrap="nowrap" class="row2">&nbsp;</td>
+  </tr>
+  <tr>
+    <th align="center" colspan="4">
+    <!-- IF S_ADD -->
+    <input type="reset" name="reset" value="{L_RESET}" class="liteoption" />
+    <!-- ELSE -->
+    <input type="submit" name="update" value="{L_ADD_ALIAS}" class="mainoption" />
+    <!-- ENDIF -->
+    </th>
+  </tr>
+</table>
+<!-- IF S_HAS_ALTS -->
+<!-- List existing alternates below + ability to delete -->
+<br />
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr>
+    <th align="center" colspan="8">This member has the following alternates</th>
+  </tr>
+  <tr>
+    <th align="center" width="20" nowrap="nowrap">&nbsp;</th>
+    <th align="left" width="35" nowrap="nowrap">&nbsp;</th>
+    <th align="left" width="100">{L_NAME}</th>
+    <th align="left" width="100">{L_CLASS}</th>
+    <th align="left" width="100">{L_RACE}</th>
+    </tr>
+  <!-- BEGIN alternates_row -->
+  <tr class="{alternates_row.ROW_CLASS}">
+    <td width="13" nowrap="nowrap" align="center"><input type="checkbox" name="alternate_id[]" value="{alternates_row.ID}" /></td>
+    <td width="35" nowrap="nowrap" align="right">{alternates_row.COUNT}</td>
+    <td width="100%" nowrap="nowrap"><a href="{alternates_row.U_VIEW_MEMBER}">{alternates_row.NAME}</a></td>
+    <td width="100%" nowrap="nowrap">{alternates_row.CLASS}</td>
+    <td width="100%" nowrap="nowrap">{alternates_row.RACE}</td>
+    </tr>
+  <!-- END members_row -->
+  <tr>
+    <th colspan="12" class="footer">{LISTALTERNATES_FOOTCOUNT}</th>
+  </tr>
+  <tr>
+    <th colspan="12" class="footer">&nbsp;</th>
+  </tr>
+  <tr>
+    <th colspan="12" class="footer">
+      <input type="submit" name="deletealternates" value="{L_DELETE_ALTERNATES}" class="liteoption" />
+    </th>
+  </tr>
+</table>
+<!-- ENDIF -->
+<!-- IF S_HAS_ALIASES -->
+<br />
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr>
+    <th align="center" colspan="6">This member has the following aliases </th>
+  </tr>
+  <tr>
+    <th align="center" width="20" nowrap="nowrap">&nbsp;</th>
+    <th align="left" width="35" nowrap="nowrap">&nbsp;</th>
+    <th align="left" width="100">{L_NAME}</th>
+    </tr>
+  <!-- BEGIN alternates_row -->
+  <tr class="{alternates_row.ROW_CLASS}">
+    <td width="13" nowrap="nowrap" align="center">
+      <input type="checkbox" name="alternate_id[]2" value="{alternates_row.ID}" />
+    </td>
+    <td width="35" nowrap="nowrap" align="right">{aliases_row.COUNT}</td>
+    <td width="100%" nowrap="nowrap">{alias_row.NAME}</td>
+    </tr>
+  <!-- END members_row -->
+  <tr>
+    <th colspan="10" class="footer">{LISTALIASES_FOOTCOUNT}</th>
+  </tr>
+  <tr>
+    <th colspan="10" class="footer">&nbsp;</th>
+  </tr>
+  <tr>
+    <th colspan="10" class="footer">
+      <input type="submit" name="deletealiases" value="{L_DELETE_ALIASES}" class="liteoption" />
+    </th>
+  </tr>
+</table>
+<!-- ENDIF -->
+</form>
+<!-- INCLUDE page_tail.html -->

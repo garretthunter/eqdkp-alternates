@@ -1,0 +1,37 @@
+<!-- INCLUDE ../../../../templates/default/page_header.html -->
+<form method="post" action="{F_ADD_RAIDGROUP}" name="post">
+<input type="hidden" name="{URI_RAIDGROUP}" value="{RAIDGROUP_ID}" />
+<input type="hidden" name="mode" value="{MODE}" />
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr>
+    <th colspan="2" align="center">{L_ADD_RAIDGROUP_TITLE}</th>
+    </tr>
+  <tr>
+    <td width="350" valign="top" nowrap="nowrap" class="row1"><strong>{L_RAIDGROUP}:</strong></td>
+    <td width="100%" valign="top" class="row2">
+      <input name="raidgroup_name" type="text" class="input" id="raidgroup_name" value="{RAIDGROUP_NAME}" size="35" maxlength="255" />{FV_RAIDGROUP_NAME}    </td>
+  </tr>
+  <tr>
+    <td width="350" valign="top" nowrap="nowrap" class="row1"><span class="row2"><strong>{L_RAID_NAMES}:</strong></span></td>
+    <td width="100%" valign="top" class="row2">
+      <select name="raidgroup_raid_ids[]" size="10" multiple="MULTIPLE" class="input">
+        <!-- BEGIN raids_row -->
+        <option value="{raids_row.VALUE}" {raids_row.SELECTED}>{raids_row.OPTION}</option>
+        <!-- END raids_row -->
+      </select>{FV_RAIDGROUP_RAID_IDS}    </td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap="nowrap" class="row1"><strong>{L_DISPLAY}:</strong></td>
+    <td valign="top" class="row2"><input name="raidgroup_display" type="checkbox" value="Y" {RAIDGROUP_DISPLAY} /></td>
+  </tr>
+  <tr>
+    <th align="center" colspan="2">
+    <!-- IF S_ADD -->
+    <input type="submit" name="add" value="{L_ADD_RAIDGROUP}" class="mainoption" /> <input type="reset" name="reset" value="{L_RESET}" class="liteoption" />
+    <!-- ELSE -->
+    <input type="submit" name="update" value="{L_UPDATE_RAIDGROUP}" class="mainoption" /> <input type="submit"  name="delete" value="{L_DELETE_RAIDGROUP}" class="liteoption" />
+    <!-- ENDIF -->    </th>
+  </tr>
+</table>
+</form>
+<!-- INCLUDE ../../../../templates/default/page_tail.html -->

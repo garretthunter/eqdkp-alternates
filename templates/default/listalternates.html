@@ -1,0 +1,47 @@
+<!-- INCLUDE ../../../../templates/default/page_header.html -->
+<form method="post" action="{F_LIST_ALTERNATES}" name="post">
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr>
+    <th align="center" width="5" nowrap="nowrap">&nbsp;</th>
+    <th width="10" align="left" nowrap="nowrap">&nbsp;    </th>
+    <th colspan="2" align="left" nowrap="nowrap">
+      <div align="center">{L_ALTERNATE}</div>
+    </th>
+    <th colspan="2" align="center" nowrap="nowrap">
+      <div align="center">{L_MAIN}</div>
+    </th>
+    </tr>
+  <tr>
+    <th align="center" nowrap="nowrap">&nbsp;</th>
+    <th align="left" nowrap="nowrap">&nbsp;</th>
+    <th align="left" nowrap="nowrap">{L_NAME}</th>
+    <th align="left" nowrap="nowrap">{L_CLASS}</th>
+    <th align="left" nowrap="nowrap">{L_NAME}</th>
+    <th align="left" nowrap="nowrap">{L_CLASS}</th>
+  </tr>
+  <!-- BEGIN alternates_row -->
+  <tr class="{members_row.ROW_CLASS}">
+    <td width="5" nowrap="nowrap" align="center"><input type="checkbox" name="alternate_id[]" value="{alternates_row.ID}" /></td>
+    <td nowrap="nowrap" align="right">{alternates_row.COUNT}</td>
+    <td nowrap="nowrap" align="right">
+      <div align="left">{alternates_row.ALT_NAME}</div>
+    </td>
+    <td nowrap="nowrap">
+      <div align="left">{alternates_row.ALT_CLASS}</div>
+    </td>
+    <td nowrap="nowrap">
+	  <div align="left">{alternates_row.MAIN_NAME}	</div>
+    </td>
+    <td nowrap="nowrap">
+      <div align="left">{alternates_row.MAIN_CLASS}</div>
+    </td>
+    </tr>
+  <!-- END alternates_row -->
+  <tr>
+    <th colspan="13" class="footer">{LISTALTERNATES_FOOTCOUNT}</th>
+  </tr>
+</table>
+<br />
+<center><input type="submit" name="{BUTTON_NAME}" value="{BUTTON_VALUE}" class="liteoption" /></center>
+</form>
+<!-- INCLUDE ../../../../templates/default/page_tail.html -->

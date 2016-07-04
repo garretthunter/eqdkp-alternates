@@ -1,0 +1,36 @@
+<!-- INCLUDE page_header.html -->
+<form method="post" action="{F_ADD_ALTERNATES}" name="post">
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr>
+    <th colspan="2" align="center">{L_ADD_ALTERNATES}
+  </tr>
+  <tr>
+    <td colspan="2" align="center" class="row1">{L_ADD_ALTERNATE_DESCRIPTION}</td>
+  </tr>
+  <tr>
+    <td align="center" valign="top" class="row2">{FV_ADD_ALTS_MISSING_ALT}<br />
+      <strong>{L_POSSIBLE_ALTERNATES}:</strong><br />
+      <select name="alternates[]" size="35" multiple="MULTIPLE" class="input" id="alternates">
+      <!-- BEGIN available_mains_row -->
+      <option value="{available_mains_row.VALUE}"{available_mains_row.SELECTED}>{available_mains_row.OPTION}</option>
+      <!-- END available_mains_row -->
+    </select>
+	</td>  
+    <td align="center" valign="top" class="row2">{FV_ADD_ALTS_MISSING_MAIN}{FV_ADD_ALTS_MAIN_ALT_SAME}<br />
+      <strong>{L_MEMBER}:</strong><br />
+      <select name="member_id" class="input">
+        <option value="">{L_SELECT_1_OF_X_MAINS}</option>
+        <!-- BEGIN main_member_row -->
+        <option value="{main_member_row.VALUE}"{main_member_row.SELECTED}>{main_member_row.OPTION}</option>
+        <!-- END main_member_row -->
+      </select>    
+	</td>
+  </tr>
+  <tr>
+    <th colspan="2" align="center">
+		<input type="submit" name="process" value="{L_ADD_ALTERNATES}" class="mainoption" />
+	</th>
+    </tr>
+</table>
+</form>
+<!-- INCLUDE page_tail.html -->
